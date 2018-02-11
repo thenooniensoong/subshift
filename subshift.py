@@ -111,8 +111,13 @@ def PrintFinalSubTitles(f, SubTitles, kp):
 		f.write(str(s.nTitle)+"\n"+s.get(src.ts, kp[1].ts, 1)+"\n")
 
 def main():
+	if len(sys.argv) < 2:
+		print('Usage: ' + sys.argv[0] + ' config.cfg')
+		return
+
 	SubTitles = {}
 	KeyPoints = []
+
 	with open(sys.argv[1]) as fcfg:
 		sfName = fcfg.readline().rstrip()
 		rfName = fcfg.readline().rstrip()
