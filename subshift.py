@@ -111,6 +111,10 @@ def PrintFinalSubTitles(f, SubTitles, kp):
 		f.write(str(s.nTitle)+"\n"+s.get(src.ts, kp[1].ts, 1)+"\n")
 
 def main():
+	if sys.version_info[0] < 3:
+		print("Python 3 or a more recent version is required.")
+		return
+
 	if len(sys.argv) < 2:
 		print('Usage: ' + sys.argv[0] + ' config.cfg')
 		return
@@ -145,5 +149,5 @@ def main():
 			else:
 				PrintFinalSubTitles(f, SubTitles, KeyPoints[-1])
 		
-		
+   
 main()
